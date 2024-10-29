@@ -12,7 +12,7 @@ class ListCommand extends BorgExecutable {
         '--short' => null,
         '--format' => '.*',
         '--list-format' => '.*',
-        '--json' => null,
+        //'--json' => null,
         '--json-lines' => null,
         '-P' => '.*',
         '--prefix' => '.*',

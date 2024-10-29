@@ -122,7 +122,7 @@ abstract class BorgExecutable extends Process {
      * @param array $env
      * @return Process
      */
-    public function mustRun(callable $callback = null, array $env = []): self {
+    public function mustRun(callable $callback = null, array $env = []): static {
         $result = $this->run($callback, $env);
 
         // 0 - success (logged as INFO)
@@ -153,7 +153,7 @@ abstract class BorgExecutable extends Process {
     /**
      * @return array|null
      */
-    public function getOutput(): ?array {
+    public function getOutputLines(): ?array {
         return $this->isOutputDisabled()
             ? $this->stdoutBuffer
             : json_decode(parent::getOutput(), true);
@@ -163,7 +163,7 @@ abstract class BorgExecutable extends Process {
     /**
      * @return array|null
      */
-    public function getErrorOutput(): ?array {
+    public function getErrorOutputLines(): ?array {
         if ($this->isOutputDisabled()) {
             return $this->stderrBuffer;
         }

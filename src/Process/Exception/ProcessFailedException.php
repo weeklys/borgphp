@@ -24,8 +24,8 @@ class ProcessFailedException extends RuntimeException {
 
         // we expect json output
         $error .= sprintf("\n\nOutput:\n================\n%s\n\nError Output:\n================\n%s",
-            is_array($process->getOutput()) ? json_encode($process->getOutput(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : $process->getOutput(),
-            is_array($process->getErrorOutput()) ? json_encode($process->getErrorOutput(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : $process->getErrorOutput()
+            $process->getOutput(),
+            $process->getErrorOutput()
         );
 
         parent::__construct($error);
